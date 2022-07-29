@@ -51,10 +51,10 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9115'] 
 
-  - job_name: 'prometheus-website'
+  - job_name: 'infoshare-website'
     static_configs:
     - targets:
-      - prometheus.io
+      - infoshareacademy.com
     metrics_path: /probe
     params:
       module:
@@ -66,4 +66,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: localhost:9115  # The blackbox exporter's real hostname:port.
+        replacement: localhost:9115
