@@ -1,0 +1,17 @@
+  - job_name: google_cloud
+    honor_labels: true
+    gce_sd_configs:
+      - project: is-monitoring-357510
+        zone: us-central1-a
+        port: 9100
+    relabel_configs:
+      - source_labels: [__meta_gce_label_cloud_provider]
+        target_label: cloud_provider
+      - source_labels: [__meta_gce_label_cloud_zone]
+        target_label: cloud_zone
+      - source_labels: [__meta_gce_label_cloud_tier]
+        target_label: cloud_tier
+      - source_labels: [__meta_gce_label_cloud_service]
+        target_label: cloud_service
+      - source_labels: [__meta_gce_instance_name]
+        target_label: instance
