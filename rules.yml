@@ -12,5 +12,3 @@ groups:
       
     - record: job:node_cpu_seconds:avg_not_idle_new
       expr: avg without(cpu)(rate(node_cpu_seconds_total{mode!="idle"}[5m]))
-
-      
